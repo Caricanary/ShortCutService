@@ -1,12 +1,13 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
+class ShortUrl extends Illuminate\Database\Eloquent\Model {}
+
 
 
 #check https://github.com/vlucas/phpdotenv
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
-
 
 //Create database connection
 # check https://packagist.org/packages/illuminate/database
@@ -22,17 +23,20 @@ $capsule->addConnection([
     'collation' => 'utf8_unicode_ci',
     'prefix' => '',
 ]);
-class ShortUrl extends Illuminate\Database\Eloquent\Model {}
 
+// Make this Capsule instance available globally via static methods... (optional)
+$capsule->setAsGlobal();
+// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule->bootEloquent();
 
 // Capture url in request
-$code = $_SERVER['QUERY_STRING'] ?? '#';
+$code = str_replace('/','',$_SERVER['REQUEST_URI']) ?? '#';
 
 // Query database
-
-$shortUrl = ShortUrl::query()->where('shortcode', '=', $code)->get();
+$shortUrl = ShortUrl::query()->where('short_code', '=', $code)->first();
 //Redirect to  original url
-$url = $shortUrl[0]->original_url ?? $_ENV['NOTFOUND_URL'];
+
+$url = $shortUrl->original_url ?? $_ENV['NOTFOUND_URL'];
 
 header("Location: ".$url);
 exit();
