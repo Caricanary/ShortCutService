@@ -1,6 +1,6 @@
 {
-    "name": "digitalocean-apps/sample-php",
-    "description": "Sample PHP application for App Platform",
+    "name": "caricanary-app/shortcut-php",
+    "description": "PHP application based on App Platform that redirects traffic",
     "type": "project",
     "require": {
         "php": "^8.4",
@@ -9,8 +9,8 @@
     },
     "authors": [
         {
-            "name": "Kamal Nasser",
-            "email": "kamal@digitalocean.com"
+            "name": "George Gathura",
+            "email": "support@caricanary.com"
         }
     ]
 }
