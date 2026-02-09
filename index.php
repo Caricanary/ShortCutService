@@ -1,14 +1,24 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-use Cowsayphp\Farm;
+//Create database connection
+use Illuminate\Database\Capsule\Manager as Capsule;
 
-header('Content-Type: text/plain');
+$capsule = new Capsule;
 
-$text = "Set a message by adding ?message=<message here> to the URL";
-if(isset($_GET['message']) && $_GET['message'] != '') {
-	$text = htmlspecialchars($_GET['message']);
-}
+$capsule->addConnection([
+    'driver' => 'mysql',
+    'host' => 'localhost',
+    'database' => 'database',
+    'username' => 'root',
+    'password' => 'password',
+    'charset' => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix' => '',
+]);
+// Capture url in request
 
-$cow = Farm::create(\Cowsayphp\Farm\Cow::class);
-echo $cow->say($text);
+
+// Query database
+
+//Redirect to  original url
