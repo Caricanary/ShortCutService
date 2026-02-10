@@ -3,7 +3,6 @@ FROM php:8.4-fpm-alpine
 # Install Nginx and other dependencies
 RUN apk add --no-cache \
     nginx \
-    composer \
     libzip-dev \
     libxml2-dev \
     curl-dev \
@@ -11,6 +10,9 @@ RUN apk add --no-cache \
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql mbstring zip curl xml
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Configure Nginx
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf

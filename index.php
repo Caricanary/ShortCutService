@@ -3,8 +3,6 @@ require __DIR__ . '/vendor/autoload.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
 class ShortUrl extends Illuminate\Database\Eloquent\Model {}
 
-
-
 #check https://github.com/vlucas/phpdotenv
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
