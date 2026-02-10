@@ -1,8 +1,9 @@
-name: sample-php
+name: shortcut-service
 services:
-- environment_slug: php
+- name: shortcut-service
   github:
     branch: main
     deploy_on_push: true
-    repo: digitalocean/sample-php
-  name: sample-php
+    repo: caricanary-app/shortcut-php
+  dockerfile_path: Dockerfile
+  http_port: 80

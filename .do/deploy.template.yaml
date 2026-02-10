@@ -1,10 +1,10 @@
 spec:
-  name: sample-php
+  name: cari-shortcut-app
   services:
   - environment_slug: php
     git:
       branch: main
-      repo_clone_url: https://github.com/digitalocean/sample-php.git
+      repo_clone_url: https://github.com/Caricanary/ShortCutService.git
     instance_count: 1
     instance_size_slug: apps-s-1vcpu-0.5gb
-    name: sample-php
+    name: cari-shortcut-php
