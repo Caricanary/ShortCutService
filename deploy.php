@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 namespace Deployer;
 
 require 'recipe/composer.php';
