@@ -12,5 +12,8 @@
             "name": "George Gathura",
             "email": "support@caricanary.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "deployer/deployer": "^7.5"
+    }
 }
