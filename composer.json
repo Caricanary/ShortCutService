@@ -3,7 +3,7 @@
     "description": "PHP application based on App Platform that redirects traffic",
     "type": "project",
     "require": {
-        "php": "^8.4",
+        "php": "^8.5",
         "illuminate/database": "^12.50",
         "vlucas/phpdotenv": "^5.6"
     },
