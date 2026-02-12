@@ -23,7 +23,7 @@ try {
 }catch (\Exception $e){
     echo $e->getMessage();
 }
-add('shared_files', []);
+add('shared_files', ['.env']);
 add('shared_dirs', []);
 add('writable_dirs', []);
 
